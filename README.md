@@ -59,3 +59,5 @@ Podés usarlo libremente para fines académicos y de aprendizaje.
 
 Grupo **UFO-Development** · UTN San Rafael  
 ✉️ Contacto principal: [benitezdario007@gmail.com](mailto:benitezdario007@gmail.com)
+
+![Banner de cierre](./assets/banner3.png)
