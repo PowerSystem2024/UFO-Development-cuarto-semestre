@@ -1,3 +1,5 @@
+![Banner del grupo](./assets/banner.png)
+
 # 🎓 UTN - Facultad Regional San Rafael
 
 ## 👥 Grupo **UFO-Development**  
