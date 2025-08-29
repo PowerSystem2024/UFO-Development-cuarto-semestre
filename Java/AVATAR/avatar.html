@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>LA LEYENDA DE AANG: AVATAR</title>
+  <script src="./js/avatar.js" defer></script>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== MENÚ PRINCIPAL ===== -->
+  <section id="menu-principal" class="active">
+    <h1>AVATAR 🔥 💧 🌱 🌪️</h1>
+    <div id="botones-regla-jugar">
+      <button type="button" id="jugar">JUGAR</button>
+      <button type="button" id="reglas">REGLAS DEL JUEGO</button>
+    </div>
+  </section>
+
+  <!-- ===== REGLAS ===== -->
+  <section id="contenedor-reglas">
+    <div id="reglas-juego">
+      <h2>Reglas del juego</h2>
+      <p>1. Se debe elegir un personaje.</p>
+      <p>2. Tú y el enemigo comienzan con 3 vidas. Gana el jugador que conserve al menos una vida.</p>
+      <p>3. Reglamento de golpes:</p>
+      <ul>
+        <li>Puño le gana a Barrida</li>
+        <li>Patada le gana a Puño</li>
+        <li>Barrida le gana a Patada</li>
+      </ul>
+    </div>
+    <div id="volver">
+      <button type="button" id="volver-inicio">VOLVER AL INICIO</button>
+    </div>
+  </section>
+
+  <!-- ===== SELECCIÓN DE PERSONAJE ===== -->
+  <section id="elige-personaje">
+    <h2>Elige tu personaje</h2>
+
+    <div class="contenedor-seleccion">
+      <figure>
+        <img src="./assets/zuko.png" alt="Zuko" id="Zuko">
+        <figcaption>Zuko 🔥</figcaption>
+      </figure>
+      <figure>
+        <img src="./assets/katara.png" alt="Katara" id="Katara">
+        <figcaption>Katara 💧</figcaption>
+      </figure>
+      <figure>
+        <img src="./assets/aang.png" alt="Aang" id="Aang">
+        <figcaption>Aang 🌪️</figcaption>
+      </figure>
+      <figure>
+        <img src="./assets/toph.png" alt="Toph" id="Toph">
+        <figcaption>Toph 🌱</figcaption>
+      </figure>
+      <figure>
+        <img src="./assets/sokka.png" alt="Sokka" id="Sokka">
+        <figcaption>Sokka 🗡️</figcaption>
+      </figure>
+    </div>
+
+    <button id="boton-personaje">SELECCIONAR</button>
+  </section>
+
+  <!-- ===== COMBATE ===== -->
+  <section id="seleccionar-ataque">
+    <h2>Elige tu ataque</h2>
+
+    <div id="tu-vs-enemigo">
+      <figure>
+        <img src="./assets/jugador.png" alt="Tu personaje">
+        <figcaption>
+          <span id="personaje-jugador"></span> -
+          <span id="vidas-jugador">3</span> vidas
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="./assets/enemigo.png" alt="Personaje enemigo">
+        <figcaption>
+          <span id="personaje-enemigo"></span> -
+          <span id="vidas-enemigo">3</span> vidas
+        </figcaption>
+      </figure>
+    </div>
+
+    <div id="tipo-ataque-padre">
+      <h2>Selecciona un movimiento</h2>
+      <div id="tipo-ataque">
+        <figure>
+          <img src="./assets/punio.png" alt="Puño" id="boton-punio">
+          <figcaption>Punio 👊</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/patada.png" alt="Patada" id="boton-patada">
+          <figcaption>Patada 🦶</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/barrida.png" alt="Barrida" id="boton-barrida">
+          <figcaption>Barrida 🧹</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Mensajes y Reiniciar ahora están DENTRO de la pantalla de combate -->
+    <div id="mensajes"></div>
+    <div id="reiniciar">
+      <button id="boton-reiniciar">Reiniciar</button>
+    </div>
+  </section>
+
+</body>
+</html>
