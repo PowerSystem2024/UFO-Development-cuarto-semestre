@@ -1,8 +1,8 @@
 /* Fondo */
 body {
-  background-image: url('../assets/man-1602633_1280.png');
-  background-color: #1b3b6f;
-  background-size: 1000px;
+  background-image: url('../assets/fondo2.png');
+  background-color: #7e5c29;
+  background-size:cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
