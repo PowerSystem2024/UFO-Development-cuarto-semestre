@@ -13,7 +13,7 @@ productos.forEach((product) => {
     // 
 
     const buyButton = document.createElement("button");
-    buyButton.innerText = "Comprar";
+    buyButton.innerText = "Agregar al carrito";
 
     content.append(buyButton);
 
