@@ -1,7 +1,7 @@
 const modalContainer = document.getElementById("modal-container");      //capruto el modal-container
 const modalOverlay = document.getElementById("modal-overlay");          //capturo el modal-oberlay
 
-const cartBtn = document.getElementById("cart-btn");            // aca capturamos el id del boton
+const cartBtn = document.getElementById("cart-btn");            // cartBtn es una constante que captura el id  cart-btn
 
 const displayCart = () => {                                     // esta función se ejecuta cuando el usuario aprete el boton del carrito
     modalContainer.innerHTML = "";                              // Limpia el header del modal
@@ -31,7 +31,7 @@ const displayCart = () => {                                     // esta función
 
     // modal body
     cart.forEach((product) => {
-        const modalBody = document. createElement("div");
+        const modalBody = document.createElement("div");
         modalBody.className = "modal-body";
         modalBody.innerHTML =`
         <div class="product">
@@ -50,6 +50,14 @@ const displayCart = () => {                                     // esta función
         `;
         modalContainer.append(modalBody);
     });
+
+    //modal fotter
+    const modalFooter = document.createElement("div");
+    modalFooter.className = "modal-footer"
+    modalFooter.innerHTML = `
+    <div class="total-price">Total :) </div>
+    `;
+    modalContainer.append(modalFooter);
 };
 
 cartBtn.addEventListener("click", displayCart);
