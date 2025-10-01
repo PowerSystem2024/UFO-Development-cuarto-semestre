@@ -48,6 +48,21 @@
     transition: transform 0.2s ease-in-out;
 }
 
+.cart-counter {
+    display: none;
+    position: fixed;
+    top: 89vh;
+    right: 27px;
+    color: #fff;
+    text-align: center;
+    background-color: #ed3434;
+    padding: 4px;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    font-size: 15px;
+}
+
 .cart-btn:hover {
     cursor: pointer;
     opacity: 0.9;
@@ -97,7 +112,7 @@
     text-align: center;
 }
 
-/*modal-bosy*/
+/*modal-body*/
 .modal-body {
     margin-bottom: 20px;
     text-align: center;
@@ -111,12 +126,18 @@
 }
 
 .product-img {
+    height: 80px;
+    margin-right: 20px;
+    width: 80px;
+}
+
+.product-info {
     flex: 1;
     text-align: left;
 }
 
 .product-info h4 {
-    margin-top: 35;
+    margin-top: 35px;
 }
 
 .quantity {
@@ -124,11 +145,11 @@
     align-items:center;
     justify-content: center;
     margin-top: 10px;
-    margin-right:5em;
+    margin-right:4em;
 }
 
-.quantity-btn-decrease,
-.quantity-btn-increase {
+.quantity-btn-decrese,
+.quantity-btn-increse {
     color: #333333;
     cursor: pointer;
     font-size: 16px;
@@ -139,19 +160,19 @@
 .quantity-input {
     color: #333333;
     font-size: 16px;
-    padding: 10 10px;
+    padding: 10px 10px;
     text-align: center;
     width: 50px;
     font-weight: bold;
 }
 
-@mediaa only screem and (max-widht: 500px) {
+@media only screen and (max-width: 500px) {
     .product-img {
         display: none;
     }
     .modal-body {
         margin-left: 5px;
-        marging-rioht: 5px;
+        margin-right: 5px;
     }
 }
 
