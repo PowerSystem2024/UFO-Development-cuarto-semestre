@@ -1,0 +1,15 @@
+# Ignorar entorno virtual y archivos temporales
+venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+
+# Ignorar archivos de VSCode
+.vscode/
+
+# Ignorar dependencias (si usamos node en el frontend)
+node_modules/
+
+# Ignorar archivos de configuración local
+*.log
