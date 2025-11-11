@@ -1,0 +1,315 @@
+/* Fondo */
+body {
+  background-image: url('../assets/fondo2.png');
+  background-color: #7e5c29;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  filter: brightness(1.2);
+}
+
+/* ---- SISTEMA DE PANTALLAS ---- */
+section {
+  display: none;            /* clave: oculto por defecto */
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 20px;
+  color: #fff;
+}
+
+section.active {
+  display: flex;            /* clave: visible cuando tiene .active */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---- TÍTULO PRINCIPAL ---- */
+h1 {
+  font-family: "Honk", system-ui, sans-serif;
+  font-size: 3.5rem;
+  text-align: center;
+  color: #f4f4f4;
+  text-shadow: 2px 2px 6px #000;
+  margin: 20px 0;
+}
+
+/* ---- BOTONES MENÚ ---- */
+#botones-regla-jugar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: clamp(260px, 40vw, 520px);
+  margin: 30px auto;
+  gap: 30px;
+}
+
+#botones-regla-jugar button {
+  font-family: Matemasie, system-ui, sans-serif;
+  width: 100%;
+  padding: 15px;
+  font-size: 2em;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: rgba(34, 105, 172, 0.9);
+  color: #fff;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#botones-regla-jugar button:hover {
+  background-color: rgba(255, 215, 0, 0.9);
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* ---- REGLAS ---- */
+#contenedor-reglas {
+  max-width: 70vw;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+#reglas-juego h2 {
+  font-family: Matemasie, system-ui, sans-serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+#reglas-juego p,
+#reglas-juego li {
+  font-family: Matemasie, system-ui, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+#volver button {
+  font-family: Matemasie, system-ui, sans-serif;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background-color: rgba(34, 105, 172, 0.9);
+  color: #fff;
+  transition: 0.3s;
+}
+
+#volver button:hover {
+  background-color: rgba(255, 215, 0, 0.9);
+  color: #000;
+}
+
+/* ---- SELECCIÓN DE PERSONAJE ---- */
+#elige-personaje h2 {
+  font-family: Matemasie, system-ui, sans-serif;
+  font-size: 2em;
+  background-color: rgba(34, 105, 172, 0.8);
+  margin: 20px auto;
+  text-align: center;
+  width: min(90%, 520px);
+  border-radius: 8px;
+  padding: 10px;
+  color: #fff;
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
+}
+
+.contenedor-seleccion {
+  display: flex;
+  width: min(90%, 900px);
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  flex-wrap: wrap;
+  margin: 0 auto 16px;
+}
+
+.contenedor-seleccion figure {
+  position: relative;
+  flex: 1 1 150px;
+  max-width: 200px;
+  margin: 0;
+  text-align: center;
+}
+
+.contenedor-seleccion img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s, outline 0.1s;
+}
+
+.contenedor-seleccion img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.contenedor-seleccion figcaption {
+  font-family: Matemasie, system-ui, sans-serif;
+  padding: 8px;
+  background-color: rgba(34, 105, 172, 0.85);
+  margin-top: 8px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+img.seleccionado {
+  outline: 4px solid rgba(255, 215, 0, 0.95);
+}
+
+/* ---- COMBATE ---- */
+#seleccionar-ataque {
+  gap: 20px;
+  width: min(95vw, 1100px);
+  background: rgba(0,0,0,0.55);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#tu-vs-enemigo {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#tu-vs-enemigo figure {
+  max-width: 220px;
+  margin: 0;
+}
+
+#tu-vs-enemigo img {
+  width: 100%;
+  border-radius: 10%;
+}
+
+#tu-vs-enemigo figcaption {
+  font-family: Matemasie, system-ui, sans-serif;
+  margin-top: 6px;
+  background: rgba(34, 105, 172, 0.85);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+/* ataques */
+#tipo-ataque-padre {
+  margin-top: 10px;
+  background: rgba(34, 105, 172, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#tipo-ataque {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+#tipo-ataque figure {
+  flex: 0 1 110px;
+  margin: 0;
+}
+
+#tipo-ataque img {
+  width: 100%;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+#tipo-ataque img:hover {
+  transform: scale(1.06);
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.5);
+}
+
+/* mensajes + reiniciar dentro de combate */
+#mensajes {
+  margin-top: 12px;
+  font-family: Matemasie, system-ui, sans-serif;
+  font-size: 1.05rem;
+  min-height: 80px;
+}
+
+/* CONTENEDOR DE REINICIO - ESTILOS CORREGIDOS */
+#reiniciar {
+  display: flex;            /* Cambiado a flex para centrar */
+  justify-content: center;  /* Centrar horizontalmente */
+  align-items: center;      /* Centrar verticalmente */
+  margin-top: 20px;         /* Más espacio superior */
+  padding: 15px;            /* Padding para mejor espaciado */
+}
+
+/* BOTÓN DE REINICIO - ESTILOS MEJORADOS */
+#boton-reiniciar {
+  font-family: Matemasie, system-ui, sans-serif;
+  font-size: 1.3rem;        /* Tamaño más grande */
+  font-weight: bold;
+  padding: 12px 24px;       /* Más padding para mejor apariencia */
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ffd700, #ffa500); /* Gradiente dorado */
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  min-width: 180px;         /* Ancho mínimo para mejor apariencia */
+}
+
+#boton-reiniciar:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
+  background: linear-gradient(135deg, #ffa500, #ffd700);
+}
+
+#boton-reiniciar:active {
+  transform: scale(0.95);
+}
+
+/* Estilo cuando el botón está oculto */
+#reiniciar[style*="display: none"] {
+  display: none !important;
+}
+
+/* Estilo cuando el botón está visible */
+#reiniciar[style*="display: block"] {
+  display: flex !important; /* Forzar display flex cuando se muestra */
+}
+
+/* ---- BOTÓN SELECCIONAR PERSONAJE ---- */
+#boton-personaje {
+  font-family: Matemasie, system-ui, sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2269ac, #1a4d7a);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+#boton-personaje:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
+  background: linear-gradient(135deg, #1a4d7a, #2269ac);
+}
