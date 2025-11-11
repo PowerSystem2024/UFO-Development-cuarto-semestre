@@ -49,4 +49,4 @@ export default function Checkout() {
       </button>
     </div>
   );
-}
+};
