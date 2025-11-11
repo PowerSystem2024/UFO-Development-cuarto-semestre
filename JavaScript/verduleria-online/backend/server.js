@@ -68,6 +68,16 @@ app.post('/api/auth/login', async (req, res) => {
   res.send({ token, user: { id: user.id, name: user.name, email: user.email } });
 });
 
+// Get current user data
+app.get('/api/auth/me', authMiddleware, async (req, res) => {
+  res.send({
+    id: req.user.id,
+    name: req.user.name,
+    email: req.user.email
+  });
+});
+
+
 // --- Obtener productos ---
 app.get('/api/products', async (req, res) => {
   const [rows] = await pool.query('SELECT * FROM products');
