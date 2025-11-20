@@ -47,9 +47,13 @@ export function AuthProvider({ children }) {
 
   // ✅ Función logout
   const logout = () => {
-    localStorage.removeItem('token');
-    setUser(null);
-  };
+  if (user) {
+    localStorage.removeItem(`cart_${user.id}`);
+  }
+  localStorage.removeItem('token');
+  setUser(null);
+};
+
 
   const value = {
     user,

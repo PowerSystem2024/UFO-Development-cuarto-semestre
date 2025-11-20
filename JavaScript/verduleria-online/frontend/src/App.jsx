@@ -22,7 +22,11 @@ export default function App() {
       <header style={{ padding: 10, borderBottom: '1px solid #ddd' }}>
         
         <Link to="/">Verdulería</Link> | 
-        <Link to="/cart">Carrito</Link> | 
+        {user && (
+        <>
+          <Link to="/cart">Carrito</Link> |
+        </>
+      )} 
 
         {/* ✅ Si hay usuario logueado → muestra nombre y botón de logout */}
         {user ? (
