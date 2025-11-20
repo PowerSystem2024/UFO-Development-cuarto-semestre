@@ -14,12 +14,14 @@ import PrivateRoute from "./components/PrivateRoute";
 
 import { AuthContext } from './context/AuthContext';   // ✅ IMPORTANTE
 
+
 export default function App() {
   const { user, logout } = useContext(AuthContext);   // ✅ Extraemos usuario y logout
+  
 
   return (
     <div>
-      <header style={{ padding: 10, borderBottom: '1px solid #ddd' }}>
+      <header  className="topbar" style={{ padding: 10, borderBottom: '1px solid #ddd' }}>
         
         <Link to="/">Verdulería</Link> | 
         {user && (

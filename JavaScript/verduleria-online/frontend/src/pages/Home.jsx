@@ -16,23 +16,28 @@ export default function Home() {
   return (
     <div>
       <h2>Productos</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10 }}>
+      <div className="product-grid">
         {products.map(p => (
-          <div key={p.id} style={{ border: '1px solid #ccc', padding: 10 }}>
-            <h3>{p.name}</h3>
-            <p>{p.description}</p>
-            <p>${p.price}</p>
-            <button onClick={() => {
-              const key = user ? `cart_${user.id}` : "cart_guest";
+          <div className="product-card" key={p.id}>
+  <img src={`/src/assets/frutas/${p.image}`} alt={p.name} />
 
-              const cart = JSON.parse(localStorage.getItem(key) || "[]");
-              const found = cart.find(i=>i.id===p.id);
-              if(found) found.qty++;
-              else cart.push({ id: p.id, name: p.name, price: Number(p.price), qty: 1 });
-              localStorage.setItem(key, JSON.stringify(cart));
-              alert('Agregado al carrito');
-            }}>Agregar</button>
-          </div>
+  <h3>{p.name}</h3>
+  <p>{p.description}</p>
+  <p>${p.price}</p>
+
+  <button className="btn-primary" onClick={() => {
+    const key = user ? `cart_${user.id}` : "cart_guest";
+    const cart = JSON.parse(localStorage.getItem(key) || "[]");
+    const found = cart.find(i=>i.id===p.id);
+
+    if(found) found.qty++;
+    else cart.push({ id: p.id, name: p.name, price: Number(p.price), qty: 1 });
+
+    localStorage.setItem(key, JSON.stringify(cart));
+    alert('Agregado al carrito');
+  }}>Agregar</button>
+</div>
+
         ))}
       </div>
     </div>
