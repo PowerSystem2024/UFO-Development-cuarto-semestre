@@ -22,8 +22,7 @@ export default function App() {
   return (
     <div>
       <header  className="topbar" style={{ padding: 10, borderBottom: '1px solid #ddd' }}>
-        
-        <Link to="/">Verdulería</Link> | 
+        <Link to="/">Frutería & Verdulería</Link> | 
         {user && (
         <>
           <Link to="/cart">Carrito</Link> |

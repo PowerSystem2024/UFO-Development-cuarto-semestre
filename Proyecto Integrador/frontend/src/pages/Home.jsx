@@ -15,7 +15,7 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <h2>Productos</h2>
+      <h1 style={{ color: 'rgba(252, 241, 88, 1)' }}>Productos</h1>
       <div className="product-grid">
         {products.map(p => (
           <div className="product-card" key={p.id}>
