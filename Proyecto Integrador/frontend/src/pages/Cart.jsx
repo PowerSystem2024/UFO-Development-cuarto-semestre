@@ -4,38 +4,68 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 export default function Cart() {
-  const { user } = useContext(AuthContext);              // ✅ obtener usuario arriba
+  const { user } = useContext(AuthContext);
   const [cart, setCart] = useState([]);
 
-  const key = user ? `cart_${user.id}` : 'cart_guest';   // ✅ nombre de carrito por usuario
+  const key = user ? `cart_${user.id}` : 'cart_guest';
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem(key) || '[]');
     setCart(data);
-  }, [key]);  // ✅ se recarga si cambia el usuario (y por ende la key)
+  }, [key]);
 
-  const total = cart.reduce((s, i) => s + Number(i.price) * Number(i.qty || 1), 0);
+  const total = cart.reduce(
+    (s, i) => s + Number(i.price) * Number(i.qty || 1), 
+    0
+  );
 
   return (
-    <div>
-      <h2>Carrito</h2>
-      {cart.length === 0 ? (
-        <p>No hay productos</p>
-      ) : (
-        <div>
-          <ul>
-            {cart.map(i => (
-              <li key={i.id}>
-                {i.name} x {i.qty} - ${Number(i.price) * Number(i.qty || 1)}
-              </li>
-            ))}
-          </ul>
-          <p>Total: ${total}</p>
-          <Link to="/checkout">
-            <button>Ir a pagar</button>
-          </Link>
-        </div>
-      )}
+    <div className="cart-page-container">
+
+      <div className="cart-page-panel">
+        <h2>Carrito</h2>
+
+        {cart.length === 0 ? (
+          <p>No hay productos</p>
+        ) : (
+          <>
+            <ul className="cart-page-list">
+              {cart.map(i => (
+                <li className="cart-page-item" key={i.id}>
+                  
+                  {/* Imagen del producto */}
+                  <img 
+                    src={`/frutas/${i.image}`} 
+                    alt={i.name} 
+                    className="cart-page-img"
+                  />
+
+                  {/* Nombre + cantidad */}
+                  <div className="cart-page-info">
+                    <strong>{i.name}</strong>
+                    <span className="cart-page-qty">x {i.qty}</span>
+                  </div>
+
+                  {/* Subtotal */}
+                  <span className="cart-page-price">
+                    ${Number(i.price) * Number(i.qty || 1)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="cart-page-total">
+              <p>Total:</p>
+              <strong>${total}</strong>
+            </div>
+
+            <Link to="/checkout">
+              <button className="auth-btn">Ir a pagar</button>
+            </Link>
+          </>
+        )}
+      </div>
+
     </div>
   );
 }

@@ -10,52 +10,53 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [response, setResponse] = useState(null);
 
-  const { login } = useContext(AuthContext);   // ✅ usamos login() del contexto
-  const navigate = useNavigate();              // ✅ para redirigir después del login
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      // 1. Pedido al backend
       const r = await api.post('/auth/login', { email, password });
-
       const token = r.data.token;
 
-      // 2. Actualizar contexto + guardar token + obtener /auth/me
       await login(token);
 
       setResponse('Login correcto');
-      
-      // 3. Redirigir al home o donde quieras
       navigate('/');
-
     } catch (err) {
       setResponse('Error: ' + (err.response?.data?.error || 'Credenciales incorrectas'));
     }
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        /><br /><br />
+    <div className="auth-container">
 
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        /><br /><br />
+      <div className="auth-card">
+        <h2>Login</h2>
 
-        <button type="submit">Ingresar</button>
-      </form>
+        <form onSubmit={handleLogin}>
 
-      {response && <p>{response}</p>}
+          <input
+            className="auth-input"
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+
+          <input
+            className="auth-input"
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+
+          <button className="auth-btn" type="submit">Ingresar</button>
+        </form>
+
+        {response && <p className="auth-response">{response}</p>}
+      </div>
     </div>
   );
 }

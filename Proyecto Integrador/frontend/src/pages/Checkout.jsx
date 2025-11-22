@@ -1,3 +1,5 @@
+// frontend/src/pages/Checkout.jsx
+
 import React, { useContext } from 'react';
 import api, { setToken } from '../services/api';
 import { AuthContext } from '../context/AuthContext';
@@ -19,7 +21,6 @@ export default function Checkout() {
 
     setToken(userToken);
 
-    // 🔹 Formatear items para backend
     const items = cart.map(i => ({
       product_id: i.id,
       name: i.name,
@@ -27,27 +28,52 @@ export default function Checkout() {
       price: i.price
     }));
 
-
-    // Crear preferencia de Mercado Pago
     const r = await api.post('/create_preference', { items });
-
-    // Redirigir al pago
     window.location.href = r.data.init_point;
-
-    // 👇 La parte de Mercado Pago la haremos en el próximo paso
   };
 
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
 
   return (
-    <div>
-      <h2>Checkout</h2>
-      <p>Total: ${total}</p>
+    <div className="cart-page-container">
 
-      <button onClick={handlePay}>
-        Pagar con Mercado Pago
-      </button>
+      <div className="cart-page-panel">
 
+        <h2>Checkout</h2>
+
+        <ul className="cart-page-list">
+          {cart.map(item => (
+            <li className="cart-page-item" key={item.id}>
+
+              <img 
+                src={`/frutas/${item.image}`}
+                className="cart-page-img"
+                alt={item.name}
+              />
+
+              <div className="cart-page-info">
+                <strong>{item.name}</strong>
+                <span className="cart-page-qty">x {item.qty}</span>
+              </div>
+
+              <span className="cart-page-price">
+                ${item.price * item.qty}
+              </span>
+
+            </li>
+          ))}
+        </ul>
+
+        <div className="cart-page-total">
+          <span>Total:</span>
+          <strong>${total}</strong>
+        </div>
+
+        <button className="auth-btn" onClick={handlePay}>
+          Pagar con Mercado Pago
+        </button>
+
+      </div>
     </div>
   );
-};
+}

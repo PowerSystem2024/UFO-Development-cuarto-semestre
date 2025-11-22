@@ -15,11 +15,11 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <h1 style={{ color: 'rgba(252, 241, 88, 1)' }}>Productos</h1>
+      <h1 style={{ color: '#c4cacaff' }}>Productos</h1>
       <div className="product-grid">
         {products.map(p => (
           <div className="product-card" key={p.id}>
-  <img src={`/src/assets/frutas/${p.image}`} alt={p.name} />
+  <img src={`/frutas/${p.image}`} alt={p.name} />
 
   <h3>{p.name}</h3>
   <p>{p.description}</p>
@@ -31,7 +31,7 @@ export default function Home() {
     const found = cart.find(i=>i.id===p.id);
 
     if(found) found.qty++;
-    else cart.push({ id: p.id, name: p.name, price: Number(p.price), qty: 1 });
+    else cart.push({ id: p.id, name: p.name, price: Number(p.price), qty: 1, image: p.image });
 
     localStorage.setItem(key, JSON.stringify(cart));
     alert('Agregado al carrito');

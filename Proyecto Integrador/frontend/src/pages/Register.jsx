@@ -13,41 +13,48 @@ export default function Register() {
     e.preventDefault();
     try {
       const r = await api.post('/auth/register', { name, email, password });
-      console.log(r);
+      console.log(r.data);
       setResponse('Usuario registrado correctamente');
     } catch (err) {
-      console.log(err); // Para ver el error real en consola
       setResponse('Error: ' + (err.response?.data?.error || 'Error desconocido'));
     }
   };
 
   return (
-    <div>
-      <h2>Registro</h2>
-      <form onSubmit={handleRegister}>
-        <input 
-          placeholder="Nombre" 
-          value={name} 
-          onChange={e => setName(e.target.value)} 
-        /><br /><br />
+    <div className="auth-container">
 
-        <input 
-          placeholder="Email" 
-          value={email} 
-          onChange={e => setEmail(e.target.value)}
-        /><br /><br />
+      <div className="auth-card">
+        <h2>Registro</h2>
 
-        <input 
-          type="password" 
-          placeholder="Contraseña"
-          value={password} 
-          onChange={e => setPassword(e.target.value)} 
-        /><br /><br />
+        <form onSubmit={handleRegister}>
 
-        <button type="submit">Registrar</button>
-      </form>
+          <input
+            className="auth-input"
+            placeholder="Nombre"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
 
-      {response && <p>{response}</p>}
+          <input
+            className="auth-input"
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+
+          <input
+            className="auth-input"
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+
+          <button className="auth-btn" type="submit">Registrar</button>
+        </form>
+
+        {response && <p className="auth-response">{response}</p>}
+      </div>
     </div>
   );
 }

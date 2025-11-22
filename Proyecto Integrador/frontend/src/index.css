@@ -1,15 +1,32 @@
-/* Fondo general claro */
+/* =========================================================
+   VARIABLES GLOBALES
+========================================================= */
+:root {
+  --primary: #2a7c58;
+  --primary-dark: #1f6345;
+  --danger: #ee4242;
+  --danger-dark: #c53030;
+
+  --text-dark: #172c31;
+  --text-light: #fff;
+
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-bg-strong: rgba(255, 255, 255, 0.8);
+  --glass-blur: blur(12px);
+
+  --radius: 14px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   FONDO GENERAL
+========================================================= */
 body {
-  background-image: url('../public/images/8.jpg');
+  background-image: url('../public/images/1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* <— esto hace que quede inmóvil */
+  background-attachment: fixed;
   background-position: center;
-  /* margin: 0;
-  padding: 0;
-  background: #fafaf8;
-  font-family: Arial, sans-serif;
-  color: #504f4f; */
 }
 
 /* Contenedor principal */
@@ -19,28 +36,75 @@ body {
   padding: 20px;
 }
 
-/* Barra superior */
+/* =========================================================
+   NAVBAR (TOPBAR)
+========================================================= */
 .topbar {
-  background: rgb(232, 247, 18);
+  background: rgba(163, 165, 135, 0.5);
   padding: 15px 20px;
-  border-bottom: 2px solid #ee4242;
+  border-bottom: 2px solid var(--danger);
+  border-radius: var(--radius);
+
   display: flex;
-  gap: 20px;
-  font-size: 18px;
-  border-radius: 13px;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 20px;
 }
 
 .topbar a {
-  color: #2a7c58;
+  color: var(--text-dark);
   text-decoration: none;
   font-weight: bold;
+  transition: 0.2s;
 }
 
 .topbar a:hover {
-  text-decoration: underline;
+  opacity: 0.8;
 }
 
-/* Grid de productos */
+.topbar .left,
+.topbar .right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Botón hamburguesa */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/*BOTON CERRAR CESIÓN*/
+.logout-btn {
+  background: #2a7c58;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease-in-out, transform 0.1s;
+}
+
+.logout-btn:hover {
+  background: #1f6345;
+  transform: scale(1.03);
+}
+
+.logout-btn:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================================
+   PRODUCTOS
+========================================================= */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -48,41 +112,313 @@ body {
   margin-top: 20px;
 }
 
-/* Tarjeta de producto */
 .product-card {
-  background: rgb(250, 250, 188);
-  border-radius: 10px;
-  padding: 15px;
+  background: rgba(250, 250, 188, 0.55);
+  border-radius: var(--radius);
   border: 1px solid #91ca8f;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
+  padding: 15px;
+
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+
+  transition: 0.25s ease;
 }
 
 .product-card:hover {
-  transform: scale(1.04);
+  transform: translateY(-5px) scale(1.03);
 }
 
-/* Imagen del producto */
 .product-card img {
   width: 100%;
   height: 180px;
-  object-fit:contain;
-  border-radius: px;
+  object-fit: contain;
 }
 
-/* Botón */
 .btn-primary {
-  background: #2a7c58;
-  color: rgb(255, 255, 255);
+  background: var(--primary);
+  color: var(--text-light);
   border: none;
   padding: 10px 20px;
-  margin-top: 10px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: var(--radius);
+  margin-top: 10px;
   font-size: 16px;
-  transition: background 0.2s;
+  transition: 0.2s;
 }
 
 .btn-primary:hover {
-  background: #1f6345;
+  background: var(--primary-dark);
 }
+
+/* =========================================================
+   FORMULARIOS (GLASS UI)
+========================================================= */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.auth-card {
+  width: 350px;
+  padding: 35px;
+  border-radius: var(--radius);
+
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow);
+
+  text-align: center;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #aaa;
+  border-radius: var(--radius);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.auth-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+@keyframes slide-right {
+  from { transform: translateX(60px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-25px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* =========================================================
+   CARRITO — PANEL CENTRAL (PÁGINA /cart)
+========================================================= */
+.cart-page-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.cart-page-panel {
+  width: 450px;
+  padding: 30px;
+  border-radius: var(--radius);
+
+  animation: slide-down 0.5s ease-out;
+
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow);
+}
+
+.cart-page-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-page-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.cart-page-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: rgba(255,255,255,0.5);
+  border-radius: 10px;
+}
+
+.cart-page-info {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.cart-page-price {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* =========================================================
+   BOTÓN Flotante Carrito
+========================================================= */
+.cart-float-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+
+  background: var(--primary);
+  color: white;
+
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+
+  transition: 0.2s;
+}
+
+.cart-float-btn:hover {
+  background: var(--primary-dark);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+
+  background: #ff4d4d;
+  color: white;
+
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+
+/* =========================================================
+   PANEL LATERAL (Mini Carrito)
+========================================================= */
+.cart-side-panel {
+  position: fixed;
+  top: 0;
+  right: -320px;
+
+  width: 300px;
+  height: 100vh;
+
+  padding: 25px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: -4px 0 12px rgba(0,0,0,0.25);
+
+  opacity: 0;              /* <- INVISIBLE */
+  pointer-events: none;    /* <- NO INTERACTÚA CUANDO ESTÁ CERRADO */
+
+  transition: 0.35s ease;
+  animation: slide-right 0.4s ease-out;
+
+  z-index: 998;
+}
+
+.cart-side-panel.open {
+  right: 0;               /* visible */
+  opacity: 1;
+  pointer-events: auto;   /* permitir clics */
+}
+
+
+.mini-cart-list {
+  margin-top: 15px;
+  max-height: 65vh;
+  overflow-y: auto;
+}
+
+.mini-cart-item {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.mini-cart-item img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  background: rgba(255,255,255,0.4);
+  border-radius: 8px;
+}
+
+.mini-cart-price {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.close-cart-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+
+  background: var(--danger);
+  border: none;
+  color: white;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-cart-btn:hover {
+  background: var(--danger-dark);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 992px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .product-card img { height: 150px; }
+}
+
+@media (max-width: 768px) {
+  .menu-btn { display: block; }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .topbar .right {
+    display: none;
+    flex-direction: column;
+  }
+
+  .right.open { display: flex; }
+
+  .product-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .product-card img { height: 120px; }
+  .btn-primary { width: 100%; }
+
+  .auth-card { width: 90%; padding: 25px; }
+}
+
+
