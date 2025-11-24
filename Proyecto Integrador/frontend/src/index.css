@@ -22,7 +22,7 @@
    FONDO GENERAL
 ========================================================= */
 body {
-  background-image: url('../public/images/1.jpg');
+  background-image: url('../images/1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
