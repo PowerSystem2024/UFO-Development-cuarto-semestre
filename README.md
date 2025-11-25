@@ -1,4 +1,4 @@
-![Banner del grupo](../assets/banner1.png)
+![Banner del grupo](assets/banner1.png)
 
 # 🎓 UTN - Facultad Regional San Rafael
 
@@ -60,4 +60,4 @@ Podés usarlo libremente para fines académicos y de aprendizaje.
 Grupo **UFO-Development** · UTN San Rafael  
 ✉️ Contacto principal: [benitezdario007@gmail.com](mailto:benitezdario007@gmail.com)
 
-![Banner de cierre](./assets/banner3.png)
+![Banner de cierre](assets/banner3.png)
