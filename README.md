@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-![Banner del grupo](./assets/banner1.png)
-=======
+
 ![Banner del grupo](assets/banner1.png)
->>>>>>> b1a70eb54f1593b39d3fec5258441bc028e228e8
+
 
 # 🎓 UTN - Facultad Regional San Rafael
 
