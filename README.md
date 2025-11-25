@@ -1,4 +1,4 @@
-![Banner del grupo](./assets/banner1.png)
+![Banner del grupo](../assets/banner1.png)
 
 # 🎓 UTN - Facultad Regional San Rafael
 
